@@ -15,17 +15,18 @@ export default function Home() {
 
       <section>
         <h2>エンジニアのブログ</h2>
-        <div>
+        <div className={styles.grid}>
           <article>
             <Link legacyBehavior href="/">
-              <img src='/images/thumbnail01.jpg' alt=""/>
+              <img src='/images/thumbnail01.jpg' 
+              className={styles.thumbnailImage}/>
             </Link>
             <Link legacyBehavior href="/">
-            <a>SSGとSSRの使い分けの場面はいつなのか？</a>
+            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
             </Link>
             <br />
-            <small>February 23, 2020</small>
-          </article>
+            <small className={utilStyle.lightText}>February 23, 2020</small>
+          </article>utilStyle
         </div>
       </section>
     </Layout>
