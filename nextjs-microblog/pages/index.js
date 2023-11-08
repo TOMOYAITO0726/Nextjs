@@ -9,71 +9,41 @@ import { getPostsData } from './lib/post'
 
 //SSGの場合
 export async function getStaticProps() {
-  const allPostData = getPostsData();//id, title, date, thumbnail
-  console.log(allPostData);
+  const allPostsData = getPostsData();//id, title, date, thumbnail
+  console.log(allPostsData);
 
   //Home()にallPostDataを渡してあげる
   return {
     props: {
-      allPostData,
+      allPostsData,
     },
   };
 }
 
-export default function Home(allPostData) {
+export default function Home(props) {
+  const {allPostsData} = props;
   return (
     <Layout>
       <section className={utilStyle.headingMd}>
         <p>私はフルスタックエンジニアです</p>
       </section>
 
-      <section>
+      <section className={'${utilStyle.headingMd} ${utilStyle.padding1px}'}>
         <h2>エンジニアのブログ</h2>
         <div className={styles.grid}>
-          <article>
-            <Link legacyBehavior href="/">
-              <img src='/images/thumbnail01.jpg' 
-              className={styles.thumbnailImage}/>
+          {allPostsData.map(({id, title, date, thumbnail})=> (
+            <article key={id}>
+            <Link legacyBehavior href={'/posts/${id}'}>
+              <img src={thumbnail} className={styles.thumbnailImage}/>
             </Link>
-            <Link legacyBehavior href="/">
-            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>February 23, 2020</small>
-          </article>
-          <article>
-            <Link legacyBehavior href="/">
-              <img src='/images/thumbnail01.jpg' 
-              className={styles.thumbnailImage}/>
-            </Link>
-            <Link legacyBehavior href="/">
-            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+            <Link legacyBehavior href={'/posts/${id}'}>
+            <a className={utilStyle.boldText}>{title}</a>
             </Link>
             <br />
-            <small className={utilStyle.lightText}>February 23, 2020</small>
+            <small className={utilStyle.lightText}>{date}</small>
           </article>
-          <article>
-            <Link legacyBehavior href="/">
-              <img src='/images/thumbnail01.jpg' 
-              className={styles.thumbnailImage}/>
-            </Link>
-            <Link legacyBehavior href="/">
-            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>February 23, 2020</small>
-          </article>
-          <article>
-            <Link legacyBehavior href="/">
-              <img src='/images/thumbnail01.jpg' 
-              className={styles.thumbnailImage}/>
-            </Link>
-            <Link legacyBehavior href="/">
-            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>February 23, 2020</small>
-          </article>
+          ))}
+          
         </div>
       </section>
     </Layout>
