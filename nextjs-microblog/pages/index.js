@@ -5,8 +5,22 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import Layout from '../components/Layout';
 import utilStyle from "../styles/utils.module.css";
+import { getPostsData } from './lib/post'
 
-export default function Home() {
+//SSGの場合
+export async function getStaticProps() {
+  const allPostData = getPostsData();//id, title, date, thumbnail
+  console.log(allPostData);
+
+  //Home()にallPostDataを渡してあげる
+  return {
+    props: {
+      allPostData,
+    },
+  };
+}
+
+export default function Home(allPostData) {
   return (
     <Layout>
       <section className={utilStyle.headingMd}>

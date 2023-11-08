@@ -1,6 +1,6 @@
 import path from "path"; //ディレクトリを取得
 import fs from "fs";
-import matter from "matter";
+import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "posts"); //postsフォルダのパス取得
 
