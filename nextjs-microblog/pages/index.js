@@ -26,7 +26,40 @@ export default function Home() {
             </Link>
             <br />
             <small className={utilStyle.lightText}>February 23, 2020</small>
-          </article>utilStyle
+          </article>
+          <article>
+            <Link legacyBehavior href="/">
+              <img src='/images/thumbnail01.jpg' 
+              className={styles.thumbnailImage}/>
+            </Link>
+            <Link legacyBehavior href="/">
+            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+            </Link>
+            <br />
+            <small className={utilStyle.lightText}>February 23, 2020</small>
+          </article>
+          <article>
+            <Link legacyBehavior href="/">
+              <img src='/images/thumbnail01.jpg' 
+              className={styles.thumbnailImage}/>
+            </Link>
+            <Link legacyBehavior href="/">
+            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+            </Link>
+            <br />
+            <small className={utilStyle.lightText}>February 23, 2020</small>
+          </article>
+          <article>
+            <Link legacyBehavior href="/">
+              <img src='/images/thumbnail01.jpg' 
+              className={styles.thumbnailImage}/>
+            </Link>
+            <Link legacyBehavior href="/">
+            <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+            </Link>
+            <br />
+            <small className={utilStyle.lightText}>February 23, 2020</small>
+          </article>
         </div>
       </section>
     </Layout>
