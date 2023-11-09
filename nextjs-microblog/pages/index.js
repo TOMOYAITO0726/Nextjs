@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import Layout from '../components/Layout';
 import utilStyle from "../styles/utils.module.css";
-import { getPostsData } from './lib/post'
+import { getPostsData } from '../lib/post'
 
 //SSGの場合
 export async function getStaticProps() {
@@ -19,7 +19,14 @@ export async function getStaticProps() {
     },
   };
 }
-
+ //SSRの場合
+//  export async function getServerSideProps(context) { //contextにはユーザーがリクエストした情報が入る
+//   return {
+//     props: {
+//       //Homeコンポーネントに渡すprops
+//     }
+//   }
+// }
 export default function Home(props) {
   const {allPostsData} = props;
   return (
