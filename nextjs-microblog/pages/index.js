@@ -38,12 +38,12 @@ export default function Home(props) {
       <section className={'${utilStyle.headingMd} ${utilStyle.padding1px}'}>
         <h2>エンジニアのブログ</h2>
         <div className={styles.grid}>
-          {allPostsData.map(({id, title, date, thumbnail})=> (
+          {allPostsData.map(({id, title, date, thumbnail}) => (
             <article key={id}>
-            <Link legacyBehavior href={'/posts/${id}'}>
+            <Link legacyBehavior href={`/posts/${id}`}>
               <img src={thumbnail} className={styles.thumbnailImage}/>
             </Link>
-            <Link legacyBehavior href={'/posts/${id}'}>
+            <Link legacyBehavior href={`/posts/${id}`}>
             <a className={utilStyle.boldText}>{title}</a>
             </Link>
             <br />
