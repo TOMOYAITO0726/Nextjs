@@ -1,7 +1,7 @@
 import path from "path"; //ディレクトリを取得
 import fs from "fs";
 import matter from "gray-matter";
-// import { remark } from "remark";
+import  { remark }  from "remark";
 import html from "remark-html";
 
 const postsDirectory = path.join(process.cwd(), "posts"); //postsフォルダのパス取得
@@ -42,14 +42,14 @@ export function getAllPostIds() {
 
 //idに基づいてブログ投稿データを返す
 export async function getPostData(id) {
-    const fullPath = path.join(postsDirectory, '${id}.md'); //各ファイルのパス
+    const fullPath = path.join(postsDirectory, `${id}.md`); //各ファイルのパス
     const fileContent = fs.readFileSync(fullPath, "utf8"); //ファイルの中身を読み込む
     
     const matterResult = matter(fileContent); //メタデータを解析
 
-    const blogContent = await remark() //html形式で出力するために使用
-    .use(html)
-    .process(matterResult.content);
+    const blogContent = await remark()
+        .use(html)
+        .process(matterResult.content);
     
     const blogContentHTML = blogContent.toString();
 

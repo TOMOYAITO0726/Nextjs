@@ -25,6 +25,9 @@ export default function Post({postData}) {
     <Layout>
         {postData.title}
         <br />
+        {postData.date}
+        <br />
+        {postData.blogContentHTML}
     </Layout>
     );
 }
